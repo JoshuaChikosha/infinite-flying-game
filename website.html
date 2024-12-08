@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Flying Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts API -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mute/Unmute Button -->
+    <button id="muteButton">Mute</button>
+
+    <!-- Instruction Text -->
+    <div id="instruction">
+        Press <strong>ESC</strong> to Pause. Use the <strong>Arrow Keys</strong> or <strong>WASD</strong> to move around.
+        Use SPACE to Shoot
+    </div>
+
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Overlay for Messages -->
+    <div id="overlay" class="hidden">
+        <h1 id="overlayText"></h1>
+        <img id="gameOverIcon" src="images/bluesad.png" alt="Game Over" class="hidden">
+        <div id="overlayButtons">
+            <button id="resumeButton" class="hidden">Resume Game</button>
+            <button id="restartButton" class="hidden">Restart Game</button> <!-- Added 'hidden' class -->
+        </div>
+    </div>
+
+    <!-- Game Script -->
+    <script src="game.js"></script>
+</body>
+</html>

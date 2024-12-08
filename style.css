@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Hide scrollbars */
+    position: relative;
+}
+
+/* Instruction Styling */
+#instruction {
+    position: absolute;
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff; /* White text  */
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center; 
+    z-index: 6; 
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+
+@media (max-width: 600px) {
+    #instruction {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #instruction {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+}
+
+#gameCanvas {
+    border: 2px solid #fff; /* White border around the canvas */
+    background-color: #000;  /*black*/
+}
+
+#overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85); /* Slightly less transparent */
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10; 
+}
+
+.hidden {
+    display: none;
+}
+
+#overlayText {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    animation: fadeInScale 1s ease-in-out;
+}
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+#overlayButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Hide Resume and Restart Buttons by Default */
+#resumeButton.hidden,
+#restartButton.hidden {
+    display: none;
+}
+
+#resumeButton,
+#restartButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#resumeButton {
+    background-color: #007bff; /* Blue background */
+    color: #fff;
+}
+
+#resumeButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#restartButton {
+    background-color: #28a745; /* Green background */
+    color: #fff;
+}
+
+#restartButton:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Mute Button Styling */
+#muteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    transition: background-color 0.3s;
+    z-index: 5;  
+}
+
+#muteButton:hover {
+    background-color: #777;
+}
+
+/* Game Over Icon Styling */
+#gameOverIcon {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    display: none;  
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#overlay.gameover #gameOverIcon {
+    display: block; /* Show the icon when game over */
+}
